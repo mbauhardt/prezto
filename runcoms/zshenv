@@ -12,3 +12,7 @@ fi
 
 export DOTFILESDIR=${ZDOTDIR:-$HOME}/dotfiles
 
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
+
+export NVM_DIR="$HOME/.nvm"

@@ -11,3 +11,44 @@ if [[ -s "${DOTFILESDIR:-$HOME/dotfiles}/modules/shell/externals/prezto/init.zsh
 fi
 
 # Customize to your needs...
+alias gw='./gradlew'
+alias gwValidate='./gradlew validate findbugsMain'
+
+function tm() {
+  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+  if [ $1 ]; then
+    tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+  fi
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+}
+
+function setupIdeaForDM() {
+  echo "Clean Workspace"
+  gw clean $@ || return;
+  echo "Setup Hadoop..."
+  gw setupHadoop $@ || return;
+  echo ""
+  echo "Compile Integration Tests..."
+  gw compileIntegTest $@ || return;
+  echo""
+  echo "Generate Idea Project Files..."
+  gw idea $@ || return;
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# this make the opening of a shell slow, think about to move it out
+#. /usr/local/opt/nvm/nvm.sh
+
+if [ -z "$TMUX" ]; then
+  if tmux has-session 2>/dev/null; then
+    echo "There are tmux sessions attached..."
+  else
+    tmux new-session -d -s WORK
+    tmux new-session -d -s ATHOME
+    tmux new-window -t WORK -n SLACK
+    tmux new-window -t WORK -n MAIL
+    tmux new-window -t WORK -n BOOKMARKS
+    tmux new-window -t WORK -n WIKI
+  fi
+fi
