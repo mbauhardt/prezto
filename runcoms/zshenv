@@ -16,3 +16,6 @@ unset SSH_AGENT_PID
 export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
 
 export NVM_DIR="$HOME/.nvm"
+
+# needed for alot
+export LC_ALL=en_US.UTF-8
