@@ -52,3 +52,7 @@ if [ -z "$TMUX" ]; then
     tmux new-window -t WORK -n WIKI
   fi
 fi
+
+alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+alias lockMyScreen="/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
