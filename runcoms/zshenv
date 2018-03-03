@@ -19,3 +19,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # needed for alot
 export LC_ALL=en_US.UTF-8
+
+# needed zsh autosuggestions fg color under tmux
+export TERM=xterm-256color
