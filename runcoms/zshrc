@@ -56,3 +56,9 @@ fi
 alias glol="git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 alias lockMyScreen="/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+
+alias t="task"
+# this line is required to show vim mode in prompt 'pure'
+# See https://github.com/sindresorhus/pure/wiki
+PROMPT='%(?.%F{magenta}.%F{red})${editor_info[keymap]} '
+
