@@ -44,12 +44,13 @@ if [ -z "$TMUX" ]; then
   if tmux has-session 2>/dev/null; then
     echo "There are tmux sessions attached..."
   else
-    tmux new-session -d -s WORK
-    tmux new-session -d -s ATHOME
-    tmux new-window -t WORK -n SLACK
-    tmux new-window -t WORK -n MAIL
-    tmux new-window -t WORK -n BOOKMARKS
-    tmux new-window -t WORK -n WIKI
+    tmux new-session -d -s dev -c "$HOME/src/master" -n master
+    tmux new-session -d -s etc
+    tmux new-window -c "$HOME/src/v7.3" -t dev:1 -n v7.3
+    tmux new-window -c "$HOME/src/v7.2" -t dev:2 -n v7.2
+    tmux new-window -c "$HOME/src/v7.1" -t dev:3 -n v7.1
+    tmux new-window -c "$HOME/src/v6.4" -t dev:4 -n v6.4
+    tmux select-window -t dev:0
   fi
 fi
 
