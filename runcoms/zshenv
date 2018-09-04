@@ -25,3 +25,4 @@ export TERM=xterm-256color
 
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
+export DOTFILES_CONTEXT=home
