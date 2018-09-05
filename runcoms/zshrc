@@ -63,3 +63,5 @@ alias t="task"
 # See https://github.com/sindresorhus/pure/wiki
 PROMPT='%(?.%F{magenta}.%F{red})${editor_info[keymap]} '
 
+eval "$(jenv init -)"
+
