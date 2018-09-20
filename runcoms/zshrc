@@ -44,12 +44,12 @@ if [ -z "$TMUX" ]; then
   if tmux has-session 2>/dev/null; then
     echo "There are tmux sessions attached..."
   else
-    tmux new-session -d -s dev -c "$HOME/src/master" -n topics
+    tmux new-session -d -s dev -c "$HOME/z/src/dap/master" -n topics
     tmux new-session -d -s etc
-    tmux new-window -c "$HOME/src/master" -t dev:1 -n master
-    tmux new-window -c "$HOME/src/v7.2" -t dev:2 -n v7.2
-    tmux new-window -c "$HOME/src/v7.1" -t dev:3 -n v7.1
-    tmux new-window -c "$HOME/src/v6.4" -t dev:4 -n v6.4
+    tmux new-window -c "$HOME/z/src/dap/master" -t dev:1 -n master
+    tmux new-window -c "$HOME/z/src/dap/v7.2" -t dev:2 -n v7.2
+    tmux new-window -c "$HOME/z/src/dap/v7.1" -t dev:3 -n v7.1
+    tmux new-window -c "$HOME/z/src/dap/v6.4" -t dev:4 -n v6.4
     tmux select-window -t dev:1
   fi
 fi
@@ -65,3 +65,6 @@ PROMPT='%(?.%F{magenta}.%F{red})${editor_info[keymap]} '
 
 eval "$(jenv init -)"
 
+alias scala="scala -Dscala.shell.histfile=$HOME/z/documents/histories/scala_history"
+alias hive_1_1="HADOOP_HOME=\"/opt/hadoop-2.6.0\" HADOOP_USER_CLASSPATH_FIRST=true HADOOP_CLIENT_OPTS=\"-Duser.home=$HOME/z/documents/histories\" bin/hive"
+alias beeline_1_1="HADOOP_HOME=\"/opt/hadoop-2.6.0\" HADOOP_USER_CLASSPATH_FIRST=true HADOOP_CLIENT_OPTS=\"-Duser.home=$HOME/z/documents/histories\" bin/beeline"

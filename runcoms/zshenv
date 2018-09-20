@@ -10,7 +10,8 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
-export DOTFILESDIR=${ZDOTDIR:-$HOME}/dotfiles
+export DOTFILESDIR=${ZDOTDIR:-$HOME}/z/src/dotfiles/master
+export HOMEBREW_CASK_OPTS="--appdir=/opt"
 
 unset SSH_AGENT_PID
 export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
@@ -23,6 +24,7 @@ export LC_ALL=en_US.UTF-8
 # needed zsh autosuggestions fg color under tmux
 export TERM=xterm-256color
 
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+export PASSWORD_STORE_DIR=~/z/documents/passwords
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
-export DOTFILES_CONTEXT=home
+export MYSQL_HISTFILE=~/z/documents/histories/mysql_history
