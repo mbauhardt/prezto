@@ -68,3 +68,5 @@ eval "$(jenv init -)"
 alias scala="scala -Dscala.shell.histfile=$HOME/z/documents/histories/scala_history"
 alias hive_1_1="HADOOP_HOME=\"/opt/hadoop-2.6.0\" HADOOP_USER_CLASSPATH_FIRST=true HADOOP_CLIENT_OPTS=\"-Duser.home=$HOME/z/documents/histories\" bin/hive"
 alias beeline_1_1="HADOOP_HOME=\"/opt/hadoop-2.6.0\" HADOOP_USER_CLASSPATH_FIRST=true HADOOP_CLIENT_OPTS=\"-Duser.home=$HOME/z/documents/histories\" bin/beeline"
+alias ktutil=/usr/local/Cellar/krb5/1.16.1/bin/ktutil
+
